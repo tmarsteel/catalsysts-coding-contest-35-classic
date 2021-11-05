@@ -22,15 +22,18 @@ class IfElseStatement(
             "false" -> elseBranch
             else -> throw ProgramRuntimeError("If condition did not resolve to boolean, got $conditionResult")
         }
-        code.forEach { it.execute(ctxt) }
+
+        val nestedContext = ExecutionQueueContext(ctxt)
+        nestedContext.postpone(code)
+        nestedContext.execute()
     }
 }
 
 class ReturnStatement(
-    val value: String
+    val value: Expression
 ) : Statement() {
     override fun execute(ctxt: ExecutionContext) {
-        throw FunctionReturnException(value)
+        throw FunctionReturnException(value.evaluate(ctxt))
     }
 }
 
@@ -56,8 +59,8 @@ class PostponeStatement(
     val statements: List<Statement>
 ) : Statement() {
     override fun execute(ctxt: ExecutionContext) {
-        TODO("Not yet implemented")
+        ctxt.postpone(statements)
     }
 }
 
-class FunctionReturnException(val value: String) : RuntimeException()
+class FunctionReturnException(val value: Value) : RuntimeException()

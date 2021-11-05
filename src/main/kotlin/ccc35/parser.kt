@@ -38,6 +38,7 @@ fun TransactionSequence<String>.parseStatement(): Statement {
         "return" -> parseReturn()
         "var" -> parseVariableDeclaration()
         "set" -> parseVariableAssignment()
+        "postpone" -> parsePostpone()
         else -> throw expected("print, if", token)
     }
 }
@@ -72,7 +73,7 @@ fun TransactionSequence<String>.parseIfElse(): IfElseStatement {
 fun TransactionSequence<String>.parseReturn(): ReturnStatement {
     check(next() == "return")
 
-    return ReturnStatement(next())
+    return ReturnStatement(parseExpression())
 }
 
 fun TransactionSequence<String>.parseExpression(): Expression {
@@ -89,7 +90,18 @@ fun TransactionSequence<String>.parseVariableAssignment(): VariableAssignment {
     return VariableAssignment(next(), parseExpression())
 }
 
-// fun TransactionSequence<String>.parsePostpone():
+fun TransactionSequence<String>.parsePostpone(): PostponeStatement {
+    check(next() == "postpone")
+
+    val statements = mutableListOf<Statement>()
+
+    while (peek() != "end") {
+        statements.add(parseStatement())
+    }
+    next()
+
+    return PostponeStatement(statements)
+}
 
 fun expected(e: String, got: String) = ParseException("Expected $e bug got $got")
 

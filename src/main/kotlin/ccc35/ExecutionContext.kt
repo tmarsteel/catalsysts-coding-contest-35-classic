@@ -1,7 +1,5 @@
 package ccc35
 
-import java.util.Deque
-
 interface ExecutionContext {
     fun appendOutput(text: String)
     fun hasVariable(varName: String): Boolean
@@ -36,13 +34,12 @@ class RootExecutionContext : ExecutionContext {
     }
 
     override fun execute() {
-        throw ProgramRuntimeError("Cannot execute the root")
+        throw ProgramRuntimeError("This context does not support postponing")
     }
 }
 
 class FunctionExecutionContext(private val root: RootExecutionContext) : ExecutionContext by (root) {
     private val variables = mutableMapOf<String, Value>()
-    private val executionQueue = ArrayDeque<Statement>()
 
     override fun hasVariable(varName: String): Boolean = varName in variables
 
@@ -61,16 +58,20 @@ class FunctionExecutionContext(private val root: RootExecutionContext) : Executi
 
         variables[varName] = value
     }
+}
 
-    override fun postpone(statements: List<Statement>) {
-        statements.forEach(executionQueue::addLast)
-    }
+class ExecutionQueueContext(private val parent: ExecutionContext) : ExecutionContext by (parent) {
+    private val executionQueue = ArrayDeque<Statement>()
 
     override fun execute() {
         while (executionQueue.isNotEmpty()) {
             val statement = executionQueue.removeFirst()
             statement.execute(this)
         }
+    }
+
+    override fun postpone(statements: List<Statement>) {
+        statements.forEach(executionQueue::addLast)
     }
 }
 

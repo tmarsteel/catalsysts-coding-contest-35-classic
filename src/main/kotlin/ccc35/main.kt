@@ -6,10 +6,10 @@ import kotlin.io.path.readLines
 import kotlin.io.path.writeText
 
 fun main(vararg args: String) {
-    val inputs = Paths.get("./src/main/resources/inputs/level3")
+    val inputs = Paths.get("./src/main/resources/inputs/level4")
         .listDirectoryEntries("*.in")
         .map { it.toAbsolutePath() }
-        //.filter { "debug" in it.fileName.toString() }
+        // .filter { "example" in it.fileName.toString() }
 
     for (inputFile in inputs) {
         println("Processing $inputFile")
@@ -37,7 +37,7 @@ fun main(vararg args: String) {
             currentFileOutput.appendLine(functionOutput)
         }
 
-        val outFileName = inputFile.fileName.toString().substringBeforeLast('.') + ".out"
+        val outFileName = inputFile.fileName.toString().substringBeforeLast('.') + ".out.my"
         val outFile = inputFile.parent.resolve(outFileName)
         outFile.writeText(currentFileOutput)
 
