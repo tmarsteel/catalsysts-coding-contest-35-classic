@@ -1,12 +1,11 @@
 package ccc35
 
-import java.nio.file.Paths
-import kotlin.io.path.readLines
-
 fun main(vararg args: String) {
-    var lines = Paths.get(args[0]).readLines()
+    var lines = Statement::class.java.getResourceAsStream("/inputs/level1/level1_5.in")!!.bufferedReader().readLines()
     val nLines = lines[0].toInt()
-    lines = lines.subList(0, nLines)
+    lines = lines.subList(1, nLines + 1)
 
     val tokens = lines.joinToString("\n").tokenize()
+    val function = tokens.parseProgram().single()
+    function.execute()
 }
