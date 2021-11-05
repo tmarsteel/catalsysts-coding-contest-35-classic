@@ -3,13 +3,13 @@ package ccc35
 fun TransactionSequence<String>.parseProgram(): List<Function> {
     val functions = mutableListOf<Function>()
     while (hasNext()) {
-        functions.add(parseFunction())
+        functions.add(parseFunction(functions.size + 1))
     }
 
     return functions
 }
 
-fun TransactionSequence<String>.parseFunction(): Function {
+fun TransactionSequence<String>.parseFunction(index: OneBasedIndex): Function {
     mark()
     val startToken = next()
     if (startToken != "start") {
@@ -28,7 +28,7 @@ fun TransactionSequence<String>.parseFunction(): Function {
     }
 
     commit()
-    return Function(statements)
+    return Function(index, statements)
 }
 
 fun TransactionSequence<String>.parseStatement(): Statement {
@@ -39,6 +39,7 @@ fun TransactionSequence<String>.parseStatement(): Statement {
         "var" -> parseVariableDeclaration()
         "set" -> parseVariableAssignment()
         "postpone" -> parsePostpone()
+        "call" -> parseCall()
         else -> throw expected("print, if", token)
     }
 }
@@ -77,7 +78,7 @@ fun TransactionSequence<String>.parseReturn(): ReturnStatement {
 }
 
 fun TransactionSequence<String>.parseExpression(): Expression {
-    return ExpressionImpl(next())
+    return if (peek() == "call") parseCall() else ExpressionImpl(next())
 }
 
 fun TransactionSequence<String>.parseVariableDeclaration(): VariableDeclaration {
@@ -103,6 +104,12 @@ fun TransactionSequence<String>.parsePostpone(): PostponeStatement {
     return PostponeStatement(statements)
 }
 
+fun TransactionSequence<String>.parseCall(): CallStatement {
+    check(next() == "call")
+
+    return CallStatement(parseExpression())
+}
+
 fun expected(e: String, got: String) = ParseException("Expected $e bug got $got")
 
-class ParseException(message: String, cause: Throwable? = null): RuntimeException(message, cause)
+class ParseException(message: String, cause: Throwable? = null) : RuntimeException(message, cause)

@@ -1,0 +1,1058 @@
+# function 1
+start
+  var x 2
+  print call 2
+  print call x
+  print call call call call 3
+  if call 4
+    print call 3
+  end
+  else
+    print call 3
+  end
+end
+# function 2
+start
+  return string
+end
+# function 3
+start
+  return 3
+end
+# function 4
+start
+  return true
+end
+# function 5
+start
+  print call 6
+  print call 7
+  postpone
+    print call 8
+    print call 9
+  end
+  print call 10
+end
+# function 6
+start
+  postpone
+    postpone
+      postpone
+        print ccc
+        print ccc
+        print ccb
+      end
+    end
+  end
+  postpone
+    postpone
+      return 1
+    end
+  end
+  print something
+  print nothing
+  print asdf
+  postpone
+    print test
+  end
+end
+# function 7
+start
+  print a
+  var a b
+  postpone
+    set a true
+  end
+  if a
+    
+  end
+  else
+    
+  end
+end
+# function 8
+start
+  call 1
+end
+# function 9
+start
+  print something
+  call 7
+end
+# function 10
+start
+  print more
+  call 9
+end
+# function 11
+start
+  if call 1
+    print a
+  end
+  else
+    print a
+  end
+end
+# function 12
+start
+  postpone
+    call a
+  end
+  print k
+  return 1
+end
+# function 13
+start
+  print fbji22
+end
+# function 14
+start
+  
+end
+# function 15
+start
+  print jlx24
+end
+# function 16
+start
+  var jjq25 rnpk26
+end
+# function 17
+start
+  print f27
+end
+# function 18
+start
+  print ov28
+end
+# function 19
+start
+  print tfc29
+end
+# function 20
+start
+  var zebd30 koq31
+  print zebd30
+end
+# function 21
+start
+  print ghcv32
+end
+# function 22
+start
+  print iffl33
+end
+# function 23
+start
+  var fd34 rv35
+end
+# function 24
+start
+  print h36
+end
+# function 25
+start
+  
+end
+# function 26
+start
+  
+end
+# function 27
+start
+  var plh39 aihl40
+end
+# function 28
+start
+  print hppd41
+end
+# function 29
+start
+  print ucib42
+end
+# function 30
+start
+  var xix43 hub44
+  print xix43
+end
+# function 31
+start
+  var y45 pwy46
+  print y45
+end
+# function 32
+start
+  
+end
+# function 33
+start
+  
+end
+# function 34
+start
+  var hu49 tu50
+  print hu49
+end
+# function 35
+start
+  print ussy51
+end
+# function 36
+start
+  var ac52 ip53
+end
+# function 37
+start
+  print ufn54
+end
+# function 38
+start
+  var mz55 vfyp56
+  print mz55
+end
+# function 39
+start
+  var te57 cvks58
+  print te57
+end
+# function 40
+start
+  var umnb59 kksu60
+  print umnb59
+end
+# function 41
+start
+  print bch61
+end
+# function 42
+start
+  var k62 fnc63
+end
+# function 43
+start
+  var bsev64 k65
+  print bsev64
+end
+# function 44
+start
+  
+end
+# function 45
+start
+  var ucjm67 n68
+  print ucjm67
+end
+# function 46
+start
+  var scep69 quq70
+end
+# function 47
+start
+  var w71 uf72
+end
+# function 48
+start
+  
+end
+# function 49
+start
+  var rg74 ad75
+end
+# function 50
+start
+  print oblv76
+end
+# function 51
+start
+  var nd77 n78
+  print nd77
+end
+# function 52
+start
+  
+end
+# function 53
+start
+  
+end
+# function 54
+start
+  var tmi81 wq82
+  print tmi81
+end
+# function 55
+start
+  var sed83 uraz84
+  print sed83
+end
+# function 56
+start
+  print wbds85
+end
+# function 57
+start
+  print raj86
+end
+# function 58
+start
+  var jpn87 swka88
+  print jpn87
+end
+# function 59
+start
+  
+end
+# function 60
+start
+  var erw90 dx91
+  print erw90
+end
+# function 61
+start
+  var d92 f93
+  print d92
+end
+# function 62
+start
+  var l94 xv95
+end
+# function 63
+start
+  var e96 lbc97
+  print e96
+end
+# function 64
+start
+  print vzy98
+end
+# function 65
+start
+  var zes99 agf100
+end
+# function 66
+start
+  var qntq101 u102
+end
+# function 67
+start
+  print k103
+end
+# function 68
+start
+  print kjo104
+end
+# function 69
+start
+  var bv105 emge106
+  print bv105
+end
+# function 70
+start
+  var g107 pbfz108
+  print g107
+end
+# function 71
+start
+  var zoy109 a110
+end
+# function 72
+start
+  print mxtc111
+end
+# function 73
+start
+  
+end
+# function 74
+start
+  var xnxy113 ojlj114
+  print xnxy113
+end
+# function 75
+start
+  print ujz115
+end
+# function 76
+start
+  print fe116
+end
+# function 77
+start
+  var i117 upg118
+  print i117
+end
+# function 78
+start
+  print oufi119
+end
+# function 79
+start
+  var lmzz120 q121
+  print lmzz120
+end
+# function 80
+start
+  print qutt122
+end
+# function 81
+start
+  print vz123
+end
+# function 82
+start
+  var wqrt124 s125
+  print wqrt124
+end
+# function 83
+start
+  
+end
+# function 84
+start
+  
+end
+# function 85
+start
+  print wjs128
+end
+# function 86
+start
+  print cvoh129
+end
+# function 87
+start
+  var kch130 g131
+  print kch130
+end
+# function 88
+start
+  print h132
+end
+# function 89
+start
+  var bubg133 yyun134
+end
+# function 90
+start
+  var du135 fqj136
+  print du135
+end
+# function 91
+start
+  var ulo137 r138
+  print ulo137
+end
+# function 92
+start
+  
+end
+# function 93
+start
+  var snos140 nfpq141
+  print snos140
+end
+# function 94
+start
+  var z142 yj143
+  print z142
+end
+# function 95
+start
+  print xaqd144
+end
+# function 96
+start
+  print d145
+end
+# function 97
+start
+  print j146
+end
+# function 98
+start
+  print y147
+end
+# function 99
+start
+  var lxyz148 mkbk149
+end
+# function 100
+start
+  print qtni150
+end
+# function 101
+start
+  print w151
+end
+# function 102
+start
+  var hv152 vh153
+  print hv152
+end
+# function 103
+start
+  var yg154 ay155
+  print yg154
+end
+# function 104
+start
+  
+end
+# function 105
+start
+  print hbkg157
+end
+# function 106
+start
+  print zi158
+end
+# function 107
+start
+  print jbcy159
+end
+# function 108
+start
+  var nb160 tc161
+  print nb160
+end
+# function 109
+start
+  print joj162
+end
+# function 110
+start
+  
+end
+# function 111
+start
+  print orys164
+end
+# function 112
+start
+  print wo165
+end
+# function 113
+start
+  print e166
+end
+# function 114
+start
+  var go167 a168
+end
+# function 115
+start
+  var d169 qqf170
+  print d169
+end
+# function 116
+start
+  
+end
+# function 117
+start
+  var hpq172 wg173
+  print hpq172
+end
+# function 118
+start
+  var k174 koq175
+  print k174
+end
+# function 119
+start
+  print yf176
+end
+# function 120
+start
+  print a177
+end
+# function 121
+start
+  print mrkw178
+end
+# function 122
+start
+  var tfi179 l180
+  print tfi179
+end
+# function 123
+start
+  print savj181
+end
+# function 124
+start
+  var qejx182 ra183
+  print qejx182
+end
+# function 125
+start
+  var eu184 qa185
+  print eu184
+end
+# function 126
+start
+  var l186 y187
+  print l186
+end
+# function 127
+start
+  var irxp188 d189
+  print irxp188
+end
+# function 128
+start
+  
+end
+# function 129
+start
+  
+end
+# function 130
+start
+  var yn192 ft193
+  print yn192
+end
+# function 131
+start
+  print y194
+end
+# function 132
+start
+  var ci195 cvj196
+end
+# function 133
+start
+  var o197 jk198
+end
+# function 134
+start
+  print tn199
+end
+# function 135
+start
+  var y200 mqt201
+end
+# function 136
+start
+  print ovc202
+end
+# function 137
+start
+  print wn203
+end
+# function 138
+start
+  print eo204
+end
+# function 139
+start
+  var w205 nm206
+  print w205
+end
+# function 140
+start
+  var xagv207 b208
+  print xagv207
+end
+# function 141
+start
+  print a209
+end
+# function 142
+start
+  var avvr210 tj211
+  print avvr210
+end
+# function 143
+start
+  var ms212 nxx213
+  print ms212
+end
+# function 144
+start
+  print uor214
+end
+# function 145
+start
+  print hmg215
+end
+# function 146
+start
+  var xpsk216 dhu217
+  print xpsk216
+end
+# function 147
+start
+  print hshb218
+end
+# function 148
+start
+  
+end
+# function 149
+start
+  var abjp220 gc221
+  print abjp220
+end
+# function 150
+start
+  
+end
+# function 151
+start
+  print zk223
+end
+# function 152
+start
+  var b224 pbd225
+  print b224
+end
+# function 153
+start
+  var qji226 eph227
+end
+# function 154
+start
+  print r228
+end
+# function 155
+start
+  var v229 ngr230
+end
+# function 156
+start
+  var q231 jfh232
+  print q231
+end
+# function 157
+start
+  
+end
+# function 158
+start
+  var tk234 mc235
+  print tk234
+end
+# function 159
+start
+  print l236
+end
+# function 160
+start
+  var kacp237 hp238
+  print kacp237
+end
+# function 161
+start
+  var rx239 tzkz240
+end
+# function 162
+start
+  print vol241
+end
+# function 163
+start
+  
+end
+# function 164
+start
+  var e243 lfa244
+  print e243
+end
+# function 165
+start
+  
+end
+# function 166
+start
+  
+end
+# function 167
+start
+  
+end
+# function 168
+start
+  print n248
+end
+# function 169
+start
+  var klmg249 t250
+  print klmg249
+end
+# function 170
+start
+  
+end
+# function 171
+start
+  var zdf252 ifsx253
+end
+# function 172
+start
+  print lfnm254
+end
+# function 173
+start
+  var evh255 qkdl256
+end
+# function 174
+start
+  var o257 z258
+  print o257
+end
+# function 175
+start
+  var j259 qaci260
+  print j259
+end
+# function 176
+start
+  var up261 rudd262
+end
+# function 177
+start
+  print tp263
+end
+# function 178
+start
+  print katm264
+end
+# function 179
+start
+  var fd265 s266
+  print fd265
+end
+# function 180
+start
+  var i267 yvac268
+  print i267
+end
+# function 181
+start
+  print yjoc269
+end
+# function 182
+start
+  var cyr270 pext271
+  print cyr270
+end
+# function 183
+start
+  var pz272 cak273
+  print pz272
+end
+# function 184
+start
+  var tznm274 prfi275
+  print tznm274
+end
+# function 185
+start
+  
+end
+# function 186
+start
+  var fwn277 exn278
+  print fwn277
+end
+# function 187
+start
+  
+end
+# function 188
+start
+  var qjmk280 o281
+  print qjmk280
+end
+# function 189
+start
+  var rs282 ieeb283
+end
+# function 190
+start
+  var quu284 uo285
+  print quu284
+end
+# function 191
+start
+  print byja286
+end
+# function 192
+start
+  var f287 a288
+  print f287
+end
+# function 193
+start
+  print k289
+end
+# function 194
+start
+  var llo290 zjk291
+  print llo290
+end
+# function 195
+start
+  var hkjx292 u293
+  print hkjx292
+end
+# function 196
+start
+  
+end
+# function 197
+start
+  print a295
+end
+# function 198
+start
+  var ybhb296 dllf297
+  print ybhb296
+end
+# function 199
+start
+  var nywx298 cnx299
+  print nywx298
+end
+# function 200
+start
+  var ao300 mo301
+  print ao300
+end
+# function 201
+start
+  var daq302 tom303
+  print daq302
+end
+# function 202
+start
+  print zld304
+end
+# function 203
+start
+  var nc305 zhjd306
+  print nc305
+end
+# function 204
+start
+  var hzjt307 nx308
+  print hzjt307
+end
+# function 205
+start
+  var rx309 kl310
+end
+# function 206
+start
+  var dwn311 xz312
+end
+# function 207
+start
+  var rjr313 y314
+  print rjr313
+end
+# function 208
+start
+  var vue315 d316
+  print vue315
+end
+# function 209
+start
+  var n317 sa318
+  print n317
+end
+# function 210
+start
+  print pmbq319
+end
+# function 211
+start
+  print ew320
+end
+# function 212
+start
+  print tuep321
+end
+# function 213
+start
+  print fjlw322
+end
+# function 214
+start
+  print x323
+end
+# function 215
+start
+  
+end
+# function 216
+start
+  var c325 glmm326
+  print c325
+end
+# function 217
+start
+  print jkou327
+end
+# function 218
+start
+  
+end
+# function 219
+start
+  var s329 w330
+end
+# function 220
+start
+  var f331 zfs332
+  print f331
+end
+# function 221
+start
+  var sy333 mhp334
+  print sy333
+end
+# function 222
+start
+  var spi335 ll336
+end
+# function 223
+start
+  print enl337
+end
+# function 224
+start
+  print h338
+end
+# function 225
+start
+  var xx339 xz340
+  print xx339
+end
+# function 226
+start
+  print xy341
+end
+# function 227
+start
+  print xkzw342
+end
+# function 228
+start
+  var y343 l344
+  print y343
+end
+# function 229
+start
+  print fi345
+end
+# function 230
+start
+  var ersn346 l347
+  print ersn346
+end
+# function 231
+start
+  print mz348
+end

@@ -1,15 +1,20 @@
 package ccc35
 
+typealias OneBasedIndex = Int
+
 interface ExecutionContext {
     fun appendOutput(text: String)
     fun hasVariable(varName: String): Boolean
     fun getVariableValue(varName: String): Value
     fun setVariableValue(varName: String, value: Value, initial: Boolean)
     fun postpone(statements: List<Statement>)
-    fun execute()
+    fun executeQueue()
+    fun getFunctionByIndex(index: OneBasedIndex): Function
 }
 
-class RootExecutionContext : ExecutionContext {
+class RootExecutionContext(
+    private val functions: List<Function>,
+) : ExecutionContext {
     private val outBuffer = StringBuffer()
 
     val output: String
@@ -19,7 +24,7 @@ class RootExecutionContext : ExecutionContext {
         outBuffer.append(text)
     }
 
-    override fun hasVariable(varName: String): Boolean = false
+    override fun hasVariable(varName: String) = false
 
     override fun getVariableValue(varName: String): Value {
         throw ProgramRuntimeError("No variables in the root context")
@@ -33,12 +38,23 @@ class RootExecutionContext : ExecutionContext {
         throw ProgramRuntimeError("No postponing in the root")
     }
 
-    override fun execute() {
+    override fun executeQueue() {
         throw ProgramRuntimeError("This context does not support postponing")
+    }
+
+    override fun getFunctionByIndex(index: OneBasedIndex): Function {
+        try {
+            return functions[index - 1]
+        } catch (ex: IndexOutOfBoundsException) {
+            throw ProgramRuntimeError("Function #$index is not defined", ex)
+        }
     }
 }
 
-class FunctionExecutionContext(private val root: RootExecutionContext) : ExecutionContext by (root) {
+class FunctionExecutionContext(
+    private val function: Function,
+    private val parent: ExecutionContext,
+) : ExecutionContext by (parent) {
     private val variables = mutableMapOf<String, Value>()
 
     override fun hasVariable(varName: String): Boolean = varName in variables
@@ -63,7 +79,7 @@ class FunctionExecutionContext(private val root: RootExecutionContext) : Executi
 class ExecutionQueueContext(private val parent: ExecutionContext) : ExecutionContext by (parent) {
     private val executionQueue = ArrayDeque<Statement>()
 
-    override fun execute() {
+    override fun executeQueue() {
         while (executionQueue.isNotEmpty()) {
             val statement = executionQueue.removeFirst()
             statement.execute(this)

@@ -1,0 +1,8 @@
+6
+start
+var x value
+call 2
+end
+start
+print x
+end

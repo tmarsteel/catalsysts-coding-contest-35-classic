@@ -1,0 +1,28 @@
+# function 1
+start
+  var thisis false
+  call 2
+  var x 3
+  if call x
+    print call 4
+  end
+  else
+    print call 4
+  end
+end
+# function 2
+start
+  print functiontwo
+end
+# function 3
+start
+  return true
+end
+# function 4
+start
+  print thisis
+end
+# function 5
+start
+  call string
+end

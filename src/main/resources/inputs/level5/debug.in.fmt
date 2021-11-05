@@ -1,0 +1,9 @@
+# function 1
+start
+  var x value
+  call 2
+end
+# function 2
+start
+  print x
+end

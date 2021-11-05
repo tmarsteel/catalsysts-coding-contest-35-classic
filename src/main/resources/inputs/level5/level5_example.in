@@ -1,0 +1,24 @@
+23
+start
+var thisis false
+call 2
+var x 3
+if call x
+print call 4
+end
+else
+print hi
+end
+end
+start
+print functiontwo
+end
+start
+return true
+end
+start
+print thisis
+end
+start
+call string
+end

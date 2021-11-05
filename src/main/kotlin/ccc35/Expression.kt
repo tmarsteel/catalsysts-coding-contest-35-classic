@@ -1,10 +1,11 @@
 package ccc35
 
-sealed class Expression {
-    abstract fun evaluate(ctxt: ExecutionContext): Value
+sealed interface Expression {
+    fun evaluate(ctxt: ExecutionContext): Value
+    fun toSource(): String
 }
 
-class ExpressionImpl(val variableName: String) : Expression() {
+class ExpressionImpl(val variableName: String) : Expression {
     override fun evaluate(ctxt: ExecutionContext): Value {
         if (ctxt.hasVariable(variableName)) {
             return ctxt.getVariableValue(variableName)
@@ -12,4 +13,6 @@ class ExpressionImpl(val variableName: String) : Expression() {
             return Value(variableName)
         }
     }
+
+    override fun toSource(): String = variableName
 }
