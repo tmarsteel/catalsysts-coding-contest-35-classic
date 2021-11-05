@@ -3,10 +3,12 @@ package ccc35
 class Function(
     val statements: List<Statement>
 ) {
-    fun execute(ctxt: ExecutionContext): String? {
+    fun execute(ctxt: RootExecutionContext): String? {
+        val functionContext = FunctionExecutionContext(ctxt)
+
         for (statement in statements) {
             try {
-                statement.execute(ctxt)
+                statement.execute(functionContext)
             }
             catch (ex: FunctionReturnException) {
                 return ex.value

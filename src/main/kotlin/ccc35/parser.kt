@@ -36,19 +36,21 @@ fun TransactionSequence<String>.parseStatement(): Statement {
         "print" -> parsePrint()
         "if" -> parseIfElse()
         "return" -> parseReturn()
+        "var" -> parseVariableDeclaration()
+        "set" -> parseVariableAssignment()
         else -> throw expected("print, if", token)
     }
 }
 
 fun TransactionSequence<String>.parsePrint(): PrintStatement {
     check(next() == "print")
-    return PrintStatement(next())
+    return PrintStatement(parseExpression())
 }
 
 fun TransactionSequence<String>.parseIfElse(): IfElseStatement {
     check(next() == "if")
 
-    val condition = next()
+    val condition = parseExpression()
     val trueBranch = mutableListOf<Statement>()
     val elseBranch = mutableListOf<Statement>()
 
@@ -71,6 +73,20 @@ fun TransactionSequence<String>.parseReturn(): ReturnStatement {
     check(next() == "return")
 
     return ReturnStatement(next())
+}
+
+fun TransactionSequence<String>.parseExpression(): Expression {
+    return ExpressionImpl(next())
+}
+
+fun TransactionSequence<String>.parseVariableDeclaration(): VariableDeclaration {
+    check(next() == "var")
+    return VariableDeclaration(next(), parseExpression())
+}
+
+fun TransactionSequence<String>.parseVariableAssignment(): VariableAssignment {
+    check(next() == "set")
+    return VariableAssignment(next(), parseExpression())
 }
 
 fun expected(e: String, got: String) = ParseException("Expected $e bug got $got")

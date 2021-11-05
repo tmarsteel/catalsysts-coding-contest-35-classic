@@ -1,0 +1,21 @@
+20
+start
+print hello
+var hello world
+print hello
+var boolean false
+if boolean
+var hello old
+end
+else
+set hello boolean
+end
+print hello
+print world
+if true
+return true
+end
+else
+end
+print unreached
+end
