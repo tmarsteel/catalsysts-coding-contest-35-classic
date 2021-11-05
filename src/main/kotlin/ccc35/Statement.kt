@@ -6,7 +6,7 @@ sealed class Statement {
 
 class PrintStatement(val value: Expression) : Statement() {
     override fun execute(ctxt: ExecutionContext) {
-        ctxt.output(value.evaluate(ctxt).value)
+        ctxt.appendOutput(value.evaluate(ctxt).value)
     }
 }
 
@@ -49,6 +49,14 @@ class VariableAssignment(
 ) : Statement() {
     override fun execute(ctxt: ExecutionContext) {
         ctxt.setVariableValue(variableName, value.evaluate(ctxt), false)
+    }
+}
+
+class PostponeStatement(
+    val statements: List<Statement>
+) : Statement() {
+    override fun execute(ctxt: ExecutionContext) {
+        TODO("Not yet implemented")
     }
 }
 

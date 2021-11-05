@@ -89,6 +89,8 @@ fun TransactionSequence<String>.parseVariableAssignment(): VariableAssignment {
     return VariableAssignment(next(), parseExpression())
 }
 
+// fun TransactionSequence<String>.parsePostpone():
+
 fun expected(e: String, got: String) = ParseException("Expected $e bug got $got")
 
 class ParseException(message: String, cause: Throwable? = null): RuntimeException(message, cause)

@@ -5,15 +5,8 @@ class Function(
 ) {
     fun execute(ctxt: RootExecutionContext): String? {
         val functionContext = FunctionExecutionContext(ctxt)
-
-        for (statement in statements) {
-            try {
-                statement.execute(functionContext)
-            }
-            catch (ex: FunctionReturnException) {
-                return ex.value
-            }
-        }
+        ctxt.postpone(statements)
+        ctxt.execute()
 
         return null
     }
