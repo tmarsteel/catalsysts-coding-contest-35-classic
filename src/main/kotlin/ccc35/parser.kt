@@ -1,6 +1,6 @@
 package ccc35
 
-fun TransactionalSequence<String>.parseProgram(): List<Function> {
+fun TransactionSequence<String>.parseProgram(): List<Function> {
     val functions = mutableListOf<Function>()
     while (hasNext()) {
         functions.add(parseFunction())
@@ -9,7 +9,7 @@ fun TransactionalSequence<String>.parseProgram(): List<Function> {
     return functions
 }
 
-fun TransactionalSequence<String>.parseFunction(): Function {
+fun TransactionSequence<String>.parseFunction(): Function {
     mark()
     val startToken = next()
     if (startToken != "start") {
@@ -31,9 +31,48 @@ fun TransactionalSequence<String>.parseFunction(): Function {
     return Function(statements)
 }
 
-fun TransactionalSequence<String>.parseStatement(): Statement {
+fun TransactionSequence<String>.parseStatement(): Statement {
+    return when(val token = peek()!!) {
+        "print" -> parsePrint()
+        "if" -> parseIfElse()
+        "return" -> parseReturn()
+        else -> throw expected("print, if", token)
+    }
+}
+
+fun TransactionSequence<String>.parsePrint(): PrintStatement {
     check(next() == "print")
     return PrintStatement(next())
 }
 
-fun expected(e: String, got: String) = IllegalArgumentException("Expected $e bug got $got")
+fun TransactionSequence<String>.parseIfElse(): IfElseStatement {
+    check(next() == "if")
+
+    val condition = next()
+    val trueBranch = mutableListOf<Statement>()
+    val elseBranch = mutableListOf<Statement>()
+
+    while (peek() != "end") {
+        trueBranch.add(parseStatement())
+    }
+    next()
+
+    check(next() == "else")
+
+    while (peek() != "end") {
+        elseBranch.add(parseStatement())
+    }
+    next()
+
+    return IfElseStatement(condition, trueBranch, elseBranch)
+}
+
+fun TransactionSequence<String>.parseReturn(): ReturnStatement {
+    check(next() == "return")
+
+    return ReturnStatement(next())
+}
+
+fun expected(e: String, got: String) = ParseException("Expected $e bug got $got")
+
+class ParseException(message: String, cause: Throwable? = null): RuntimeException(message, cause)

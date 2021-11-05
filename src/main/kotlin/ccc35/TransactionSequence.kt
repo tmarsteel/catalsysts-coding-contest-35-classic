@@ -1,6 +1,6 @@
 package ccc35
 
-class TransactionalSequence<T>(private val iterator: Iterator<T>) {
+class TransactionSequence<T>(private val iterator: Iterator<T>) {
 
     private val buffer: MutableList<T> = ArrayList(100)
 

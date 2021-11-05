@@ -1,5 +1,5 @@
 package ccc35
 
-fun String.tokenize(): TransactionalSequence<String> {
-    return TransactionalSequence(split(Regex("\\s")).iterator())
+fun String.tokenize(): TransactionSequence<String> {
+    return TransactionSequence(split(Regex("\\s")).iterator())
 }
